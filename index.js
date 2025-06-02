@@ -25,4 +25,22 @@
 //     console.log('Server running at http://localhost:3000');
 // });
 
-console.log('hello world');
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello, World!\n');
+});
+
+const PORT = 3000;
+
+server.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}\nServer shut down after 2 minutes.`);
+
+    // Automatically close server after 2 minutes
+    setTimeout(() => {
+        server.close(() => {
+            console.log('Server shut down after 2 minutes.');
+        });
+    }, 2 * 60 * 1000); // 2 minutes
+});
