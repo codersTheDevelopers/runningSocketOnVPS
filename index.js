@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 });
 
 server.listen(3000, () => {
-    console.log('Server listening at http://localhost:3000');
+    console.log('Server listening at http://162.220.11.137:3000');
 });
 
 
